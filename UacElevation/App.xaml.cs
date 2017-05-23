@@ -52,12 +52,14 @@ namespace UacElevation
                     result = LaunchCurrentAppAsAdmin(exeName, guid);
                 }
             }
-            
+
+#if DEBUG
             if(!IsElevated())
             {
                 Console.WriteLine(result);
                 Console.ReadKey();
             }
+#endif
 
             Environment.Exit((int)result);
         }
